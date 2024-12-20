@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="siixsem_main_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="getAssyDJPicked" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="djs" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="siixsem_main_dbModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="siixsem_main_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="siixsem_main_dbEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="getAssyDJPicked" ReturnType="Collection(siixsem_main_dbModel.getAssyDJPicked_Result)">
+            <Parameter Name="djs" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getAssyDJPicked_Result">
+          <Property Type="String" Name="MODEL_NAME" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DJ_STATUS" Nullable="true" MaxLength="3" />
+          <Property Type="String" Name="SUBINV" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="GROUP_NO" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="DJ_NO" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SUBASSEMBLY" Nullable="true" MaxLength="70" />
+          <Property Type="String" Name="ITEM_CD" Nullable="true" MaxLength="60" />
+          <Property Type="Int32" Name="BALANCE" Nullable="true" />
+          <Property Type="Int32" Name="CANTIDAD" Nullable="true" />
+          <Property Type="Int32" Name="PICKED" Nullable="true" />
+          <Property Type="String" Name="PORCENTAJE" Nullable="true" MaxLength="15" />
+          <Property Type="Int32" Name="IWH_EXISTS_QTY" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="siixsem_main_dbModelStoreContainer" CdmEntityContainer="siixsem_main_dbEntities" >
+          <FunctionImportMapping FunctionImportName="getAssyDJPicked" FunctionName="siixsem_main_dbModel.Store.getAssyDJPicked">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_main_dbModel.getAssyDJPicked_Result">
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="DJ_STATUS" ColumnName="DJ_STATUS" />
+                <ScalarProperty Name="SUBINV" ColumnName="SUBINV" />
+                <ScalarProperty Name="GROUP_NO" ColumnName="GROUP_NO" />
+                <ScalarProperty Name="DJ_NO" ColumnName="DJ_NO" />
+                <ScalarProperty Name="SUBASSEMBLY" ColumnName="SUBASSEMBLY" />
+                <ScalarProperty Name="ITEM_CD" ColumnName="ITEM_CD" />
+                <ScalarProperty Name="BALANCE" ColumnName="BALANCE" />
+                <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+                <ScalarProperty Name="PICKED" ColumnName="PICKED" />
+                <ScalarProperty Name="PORCENTAJE" ColumnName="PORCENTAJE" />
+                <ScalarProperty Name="IWH_EXISTS_QTY" ColumnName="IWH_EXISTS_QTY" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
